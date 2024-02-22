@@ -1,8 +1,7 @@
 import streamlit as st
-import pandas as pd
 import csv
 from Transpose import transpose as tps
-from numpy.lib.recfunctions import drop_fields
+from faker import Faker
 
 from DataGen import Name as nm
 from DataGen import Phone as ph
@@ -83,18 +82,19 @@ if st.button("Generate Data", type="primary"):
     output_record = []
 
     print(len(data))
+    fake = Faker(['en_US'])
 
     for i in range(1, len(data)):
         if data[i][0] == "Name":
-            name = nm(records, data[i][0])
+            name = nm(fake, records, data[i][0])
             output_record.append(name)
 
         if data[i][0] == "Phone":
-            phone = ph(records)
+            phone = ph(fake, records)
             output_record.append(phone)
 
         if data[i][0] == "Email":
-            email = em(records)
+            email = em(fake, records)
             output_record.append(email)
 
     print("final_op:")

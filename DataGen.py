@@ -1,9 +1,4 @@
-from faker import Faker
-
-fake = Faker(['en_US'])
-
-
-def Name(records, ntype):
+def Name(fake, records, ntype):
     name = []
     for i in range(records):
         if ntype == 'Full Name':
@@ -16,14 +11,14 @@ def Name(records, ntype):
     return name
 
 
-def Phone(records):
+def Phone(fake, records):
     phone = []
     for i in range(records):
         phone.append(fake.unique.numerify('##########'))
     return phone
 
 
-def Email(records):
+def Email(fake, records):
     email = []
     for i in range(records):
         nm = fake.name().split(" ")
