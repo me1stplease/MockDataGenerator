@@ -1,7 +1,8 @@
 import streamlit as st
+from faker import Faker
 import csv
 from Transpose import transpose as tps
-from faker import Faker
+
 
 from DataGen import Name as nm
 from DataGen import Phone as ph
