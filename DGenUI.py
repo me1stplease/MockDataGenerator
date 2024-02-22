@@ -98,14 +98,14 @@ if st.button("Generate Data", type="primary"):
             email = em(fake, records)
             output_record.append(email)
 
-    print("final_op:")
-    print(output_record)
+    # print("final_op:")
+    # print(output_record)
     Tp_output = [['' for x in range(len(output_record))] for y in range(len(output_record[0]))]
 
     tps(output_record, Tp_output, len(output_record), len(output_record[0]))
 
-    print("Modified matrix is")
-    print(Tp_output)
+    # print("Modified matrix is")
+    st.write(str(Tp_output))
 
     myFile = open('output.csv', 'w')
     writer = csv.writer(myFile)
